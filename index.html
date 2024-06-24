@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datin</title>
+    <title>Algundiaigualfunciona</title>
     <style>
         body, html {
             margin: 0;
@@ -60,6 +60,40 @@
             cursor: pointer;
             text-decoration: underline;
         }
+
+        /* Modal styles */
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px;
+            max-width: 80%;
+            max-height: 80%;
+            overflow-y: auto;
+            border-radius: 10px;
+            display: none;
+            z-index: 100;
+        }
+        .modal-content {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -70,12 +104,13 @@
     </iframe>
     <div class="footer">
         <div class="marquee">
-            <span>Welcome to Data Artisans. This project is born out of research conducted for the Master’s in Business Analytics and Data Science at the University of Salamanca. Our work focuses on the creation of an interactive web page that allows real-time exploration of 3D data. This innovative platform is the result of rigorous academic study in the field of data science and represents a significant advancement in data visualization. The project explores the future of spatial statistics and interactive 3D data visualization, and how these technologies can shift the paradigm in decision-making, especially in the urban context. Through practical applications, we discuss the implications of these technologies for city planning and management. The findings of our work highlight the central role of spatial statistics and interactive 3D data visualization in economic, social, and cultural decision-making. We underline the importance of addressing ethical considerations in the use of these technologies and suggest future research areas to maximize their potential. This project is a testament to the seriousness and academic rigor that characterize the Master’s in Business Analytics and Data Science at the University of Salamanca. We invite all those interested in data science to explore our platform and join us on this exciting journey towards the future of data visualization.</span>
+            <span>WELCOME TO DATAARTISANS. THIS PROJECT IS BORN OUT OF RESEARCH CONDUCTED FOR THE MASTER’S IN BUSINESS ANALYTICS AND DATA SCIENCE AT THE UNIVERSITY OF SALAMANCA. <span class="info-link" onclick="openModal()">FOR MORE INFORMATION PRESS HERE</span></span>
         </div>
     </div>
 
-    <script>
-        const modalContent = `
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
             <p>Data Artisans dives into the future of spatial statistics and interactive 3D data visualization. Our open-source project is changing the paradigm of data visualization for decision-making, especially in the urban context.</p>
             <p>Data Artisans: Transforming Data Analysis and Urban Management Through Open Source</p>
             <p>At Data Artisans, our goal is to investigate the impact of advanced spatial statistics and interactive 3D data visualization on urban decision-making. We believe in the power of open source and sharing real-time data to transform data analysis and urban management.</p>
@@ -83,43 +118,20 @@
             <p>Data Artisans presents 3D infographics that allow you to navigate and orbit among them. These visual representations, available in real-time and open source, allow you to explore data in a completely new way.</p>
             <p>Collaborate with Data Artisans: An Open-Source Project for City Planning and Management</p>
             <p>At Data Artisans, we not only present practical applications of these technologies, but also foster collaboration. Our open-source project invites everyone to contribute and help shape the future of our cities.</p>
-        `;
+        </div>
+    </div>
 
-        function showInfo() {
-            const modal = document.createElement('div');
-            modal.style.position = 'fixed';
-            modal.style.top = '50%';
-            modal.style.left = '50%';
-            modal.style.transform = 'translate(-50%, -50%)';
-            modal.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
-            modal.style.padding = '20px';
-            modal.style.borderRadius = '10px';
-            modal.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.1)';
-            modal.style.maxWidth = '80%';
-            modal.style.maxHeight = '80%';
-            modal.style.overflowY = 'auto';
-            modal.innerHTML = modalContent;
+    <script>
+        function openModal() {
+            document.getElementById('myModal').style.display = 'block';
+        }
 
-            const closeButton = document.createElement('button');
-            closeButton.textContent = 'Close';
-            closeButton.style.position = 'absolute';
-            closeButton.style.top = '10px';
-            closeButton.style.right = '10px';
-            closeButton.style.padding = '5px 10px';
-            closeButton.style.backgroundColor = '#007bff';
-            closeButton.style.color = 'white';
-            closeButton.style.border = 'none';
-            closeButton.style.cursor = 'pointer';
-            closeButton.style.borderRadius = '5px';
-            closeButton.addEventListener('click', () => {
-                document.body.removeChild(modal);
-            });
-
-            modal.appendChild(closeButton);
-            document.body.appendChild(modal);
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('myModal')) {
+                document.getElementById('myModal').style.display = 'none';
+            }
         }
     </script>
 </body>
 </html>
-
 
