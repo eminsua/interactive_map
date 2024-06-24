@@ -3,33 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Speckle 3D Model Viewer</title>
-    <style>
-        body { margin: 0; }
-        #viewer-container { width: 100%; height: 100vh; }
-    </style>
+    <title>Visualización 3D en Directo</title>
 </head>
 <body>
-    <div id="viewer-container"></div>
-
-    <!-- Script de Speckle Viewer API -->
-    <script src="https://raw.githack.com/specklesystems/speckle-server/master/public/js/viewer.js"></script>
-
-    <script>
-        async function loadViewer() {
-            const container = document.getElementById('viewer-container');
-
-            // Inicializar el cliente Speckle API
-            const apiClient = new Speckle.Client();
-            await apiClient.authenticate(); // Autenticar si es necesario
-
-            const modelUrl = 'YOUR_MODEL_URL'; // Reemplazar con la URL directa de tu modelo en Speckle
-
-            const viewer = new Speckle.Viewer(container, apiClient);
-            await viewer.loadModel(modelUrl);
-        }
-
-        loadViewer();
-    </script>
+    <h1>Visualización 3D en Directo</h1>
+    <iframe src="https://app.speckle.systems/projects/1df58fe9fb/models/96c6669411" width="100%" height="600px" frameborder="0" allowfullscreen></iframe>
 </body>
 </html>
+
