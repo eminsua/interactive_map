@@ -1,66 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Data Artisans</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            width: 100%;
-            height: 100%;
-            font-family: Arial, sans-serif;
-        }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-        .footer {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 50px;
-            background-color: white;
-            z-index: 10;
-            overflow: hidden;
-        }
-        .marquee {
-            white-space: nowrap;
-            position: absolute;
-            animation: marquee 200s linear infinite; /* Reducido a 200 segundos para efectos de demostración */
-            font-size: 14px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-        @keyframes marquee {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyecto de DataArtisans</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  .footer {
+    position: relative;
+    width: 100%;
+    height: 200px; /* Altura ajustable según necesidad */
+    background-color: white; /* Rectángulo blanco */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Para que el texto no sobresalga */
+    z-index: 1; /* Asegura que esté sobre el logo */
+  }
+  .footer .text-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap; /* Evita el salto de línea */
+    animation: slide-text 30s linear infinite; /* Animación de desplazamiento */
+    animation-delay: 2s; /* Retraso inicial */
+  }
+  @keyframes slide-text {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  .footer .text-container p {
+    font-size: 18px;
+    text-align: center;
+    text-transform: uppercase; /* Texto en mayúsculas */
+    color: black; /* Color del texto */
+    margin: 0;
+    padding: 0 20px; /* Espaciado interior */
+  }
+</style>
 </head>
 <body>
-    <iframe id="speckle-frame" title="Speckle"
-        src="https://app.speckle.systems/projects/3deeb83a8f/models/74fa1a85c3#embed=%7B%22isEnabled%22%3Atrue%2C%22isTransparent%22%3Atrue%2C%22hideControls%22%3Atrue%2C%22hideSelectionInfo%22%3Atrue%7D"
-        frameborder="0"
-        allowfullscreen>
-    </iframe>
-    <div class="footer">
-        <div class="marquee">
-            Welcome to DataArtisans. This project is born out of research conducted for the Master’s in Business Analytics and Data Science at the University of Salamanca. Our work focuses on the creation of an interactive web page that allows real-time exploration of 3D data. This innovative platform is the result of rigorous academic study in the field of data science and represents a significant advancement in data visualization. The project explores the future of spatial statistics and interactive 3D data visualization, and how these technologies can shift the paradigm in decision-making, especially in the urban context. Through practical applications, we discuss the implications of these technologies for city planning and management. The findings of our work highlight the central role of spatial statistics and interactive 3D data visualization in economic, social, and cultural decision-making. We underline the importance of addressing ethical considerations in the use of these technologies and suggest future research areas to maximize their potential. This project is a testament to the seriousness and academic rigor that characterize the Master’s in Business Analytics and Data Science at the University of Salamanca. We invite all those interested in data science to explore our platform and join us on this exciting journey towards the future of data visualization.
-        </div>
-    </div>
+
+<div class="footer">
+  <div class="text-container">
+    <p>
+      Welcome to DataArtisans. This project is born out of research conducted for the Master’s in Business Analytics and Data Science at the University of Salamanca. Our work focuses on the creation of an interactive web page that allows real-time exploration of 3D data. This innovative platform is the result of rigorous academic study in the field of data science and represents a significant advancement in data visualization. The project explores the future of spatial statistics and interactive 3D data visualization, and how these technologies can shift the paradigm in decision-making, especially in the urban context. Through practical applications, we discuss the implications of these technologies for city planning and management. The findings of our work highlight the central role of spatial statistics and interactive 3D data visualization in economic, social, and cultural decision-making. We underline the importance of addressing ethical considerations in the use of these technologies and suggest future research areas to maximize their potential. This project is a testament to the seriousness and academic rigor that characterize the Master’s in Business Analytics and Data Science at the University of Salamanca. We invite all those interested in data science to explore our platform and join us on this exciting journey towards the future of data visualization.
+    </p>
+  </div>
+</div>
+
 </body>
 </html>
 
