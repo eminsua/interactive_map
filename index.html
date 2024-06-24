@@ -3,36 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Speckle Viewer Example</title>
-    <script src="https://cdn.jsdelivr.net/npm/@speckle/viewer@0.1.4/dist/index.umd.min.js"></script>
+    <title>Como puedo quitar el maldito logo</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none; /* Para eliminar el borde del iframe */
+            display: block; /* Asegura que el iframe ocupe todo el espacio disponible */
+        }
+    </style>
 </head>
 <body>
-    <div id="renderer" style="width: 100vw; height: 100vh;"></div>
-    <script>
-        // Obtener el contenedor HTML
-        const container = document.getElementById("renderer");
-
-        // Crear una instancia del visor
-        const viewer = new Viewer(container);
-
-        // Inicializar el visor
-        async function initViewer() {
-            await viewer.init();
-
-            // Agregar controlador de cámara (opcional)
-            viewer.createExtension(CameraController);
-
-            // URL del recurso Speckle (reemplazar con tu propia URL)
-            const resource = "https://latest.speckle.dev/streams/c43ac05d04/objects/d807f3888a400dbd814529fafd8ccac0";
-
-            // Crear un cargador para el recurso Speckle
-            const loader = new SpeckleLoader(viewer.getWorldTree(), resource, "");
-
-            // Cargar el objeto Speckle
-            await viewer.loadObject(loader, true);
-        }
-
-        initViewer();
-    </script>
+    <iframe title="Speckle"
+            src="https://app.speckle.systems/projects/1df58fe9fb/models/96c6669411#embed=%7B%22isEnabled%22%3Atrue%2C%22isTransparent%22%3Atrue%2C%22hideControls%22%3Atrue%2C%22hideSelectionInfo%22%3Atrue%7D"
+            frameborder="0"
+            allowfullscreen>
+    </iframe>
 </body>
 </html>
