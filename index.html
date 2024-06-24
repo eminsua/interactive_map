@@ -44,7 +44,8 @@
         }
         .marquee span {
             display: inline-block;
-            animation: marquee 40s linear infinite;
+            padding-left: 100%;
+            animation: marquee 30s linear infinite;
         }
         @keyframes marquee {
             0% {
@@ -53,6 +54,11 @@
             100% {
                 transform: translateX(-100%);
             }
+        }
+        .info-link {
+            color: blue;
+            cursor: pointer;
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -64,17 +70,56 @@
     </iframe>
     <div class="footer">
         <div class="marquee">
-            <span>WELCOME TO DATAARTISANS. THIS PROJECT IS BORN OUT OF RESEARCH CONDUCTED FOR THE MASTER’S IN BUSINESS ANALYTICS AND DATA SCIENCE AT THE UNIVERSITY OF SALAMANCA.</span>
+            <span>Welcome to Data Artisans. This project is born out of research conducted for the Master’s in Business Analytics and Data Science at the University of Salamanca. Our work focuses on the creation of an interactive web page that allows real-time exploration of 3D data. This innovative platform is the result of rigorous academic study in the field of data science and represents a significant advancement in data visualization. The project explores the future of spatial statistics and interactive 3D data visualization, and how these technologies can shift the paradigm in decision-making, especially in the urban context. Through practical applications, we discuss the implications of these technologies for city planning and management. The findings of our work highlight the central role of spatial statistics and interactive 3D data visualization in economic, social, and cultural decision-making. We underline the importance of addressing ethical considerations in the use of these technologies and suggest future research areas to maximize their potential. This project is a testament to the seriousness and academic rigor that characterize the Master’s in Business Analytics and Data Science at the University of Salamanca. We invite all those interested in data science to explore our platform and join us on this exciting journey towards the future of data visualization.</span>
         </div>
     </div>
 
     <script>
-        // Esperar a que se cargue el documento y luego iniciar la animación
-        document.addEventListener('DOMContentLoaded', function() {
-            var marquee = document.querySelector('.marquee span');
-            marquee.style.animation = 'marquee 40s linear infinite'; // Reducido de 80s a 40s para una animación más lenta
-        });
+        const modalContent = `
+            <p>Data Artisans dives into the future of spatial statistics and interactive 3D data visualization. Our open-source project is changing the paradigm of data visualization for decision-making, especially in the urban context.</p>
+            <p>Data Artisans: Transforming Data Analysis and Urban Management Through Open Source</p>
+            <p>At Data Artisans, our goal is to investigate the impact of advanced spatial statistics and interactive 3D data visualization on urban decision-making. We believe in the power of open source and sharing real-time data to transform data analysis and urban management.</p>
+            <p>Navigate and Orbit in a World of Data with Data Artisans</p>
+            <p>Data Artisans presents 3D infographics that allow you to navigate and orbit among them. These visual representations, available in real-time and open source, allow you to explore data in a completely new way.</p>
+            <p>Collaborate with Data Artisans: An Open-Source Project for City Planning and Management</p>
+            <p>At Data Artisans, we not only present practical applications of these technologies, but also foster collaboration. Our open-source project invites everyone to contribute and help shape the future of our cities.</p>
+        `;
+
+        function showInfo() {
+            const modal = document.createElement('div');
+            modal.style.position = 'fixed';
+            modal.style.top = '50%';
+            modal.style.left = '50%';
+            modal.style.transform = 'translate(-50%, -50%)';
+            modal.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+            modal.style.padding = '20px';
+            modal.style.borderRadius = '10px';
+            modal.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.1)';
+            modal.style.maxWidth = '80%';
+            modal.style.maxHeight = '80%';
+            modal.style.overflowY = 'auto';
+            modal.innerHTML = modalContent;
+
+            const closeButton = document.createElement('button');
+            closeButton.textContent = 'Close';
+            closeButton.style.position = 'absolute';
+            closeButton.style.top = '10px';
+            closeButton.style.right = '10px';
+            closeButton.style.padding = '5px 10px';
+            closeButton.style.backgroundColor = '#007bff';
+            closeButton.style.color = 'white';
+            closeButton.style.border = 'none';
+            closeButton.style.cursor = 'pointer';
+            closeButton.style.borderRadius = '5px';
+            closeButton.addEventListener('click', () => {
+                document.body.removeChild(modal);
+            });
+
+            modal.appendChild(closeButton);
+            document.body.appendChild(modal);
+        }
     </script>
 </body>
 </html>
+
 
