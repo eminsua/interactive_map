@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualización de Modelo Speckle</title>
+    <title>Speckle Viewer Fullscreen</title>
     <style>
         body, html {
             margin: 0;
@@ -15,17 +15,36 @@
         iframe {
             width: 100%;
             height: 100%;
-            border: none; /* Para eliminar el borde del iframe */
-            display: block; /* Asegura que el iframe ocupe todo el espacio disponible */
+            border: none;
+            display: block;
         }
     </style>
 </head>
 <body>
-    <iframe title="Speckle"
-            src="https://app.speckle.systems/projects/3deeb83a8f/models/74fa1a85c3#embed=%7B%22isEnabled%22%3Atrue%2C%22isTransparent%22%3Atrue%2C%22hideControls%22%3Atrue%2C%22hideSelectionInfo%22%3Atrue%7D"
-            frameborder="0"
-            allowfullscreen>
+    <iframe id="speckle-frame" title="Speckle"
+        src="https://app.speckle.systems/projects/3deeb83a8f/models/74fa1a85c3#embed=%7B%22isEnabled%22%3Atrue%2C%22isTransparent%22%3Atrue%2C%22hideControls%22%3Atrue%2C%22hideSelectionInfo%22%3Atrue%7D"
+        frameborder="0"
+        allowfullscreen>
     </iframe>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var iframe = document.getElementById('speckle-frame');
+            iframe.onload = function() {
+                var css = 'a[href="https://speckle.systems/"] { display: none !important; }',
+                    head = iframe.contentDocument.head || iframe.contentDocument.getElementsByTagName('head')[0],
+                    style = iframe.contentDocument.createElement('style');
+
+                style.type = 'text/css';
+                if (style.styleSheet){
+                    style.styleSheet.cssText = css;
+                } else {
+                    style.appendChild(iframe.contentDocument.createTextNode(css));
+                }
+
+                head.appendChild(style);
+            };
+        });
+    </script>
 </body>
 </html>
 
