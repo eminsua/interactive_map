@@ -3,77 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live 3D Model Viewer</title>
+    <title>Speckle 3D Model Viewer</title>
     <style>
-        body {
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-        }
-        #container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-        #speckleFrame {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        #infoButton {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-        #infoText {
-            display: none;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 5px;
-            max-width: 80%;
-            text-align: center;
-            z-index: 1000;
-        }
-        #infoText p {
-            margin: 0;
-        }
+        body { margin: 0; }
+        #viewer-container { width: 100%; height: 100vh; }
     </style>
 </head>
 <body>
-    <div id="container">
-        <iframe id="speckleFrame" src="https://app.speckle.systems/projects/1df58fe9fb/models/96c6669411#embed=%7B%22isEnabled%22%3Atrue%2C%22isTransparent%22%3Atrue%2C%22hideSelectionInfo%22%3Atrue%7D" frameborder="0"></iframe>
-        <button id="infoButton">Data Explanation</button>
-        <div id="infoText">
-            <p>This is a live 3D model that you can explore generated from live data.</p>
-        </div>
-    </div>
+    <div id="viewer-container"></div>
+
+    <!-- Speckle Viewer API -->
+    <script src="https://cdn.jsdelivr.net/npm/@speckle/viewer@0.1.4/dist/index.umd.min.js"></script>
 
     <script>
-        const infoButton = document.getElementById('infoButton');
-        const infoText = document.getElementById('infoText');
+        async function loadViewer() {
+            const container = document.getElementById('viewer-container');
 
-        infoButton.addEventListener('click', () => {
-            infoText.style.display = 'block';
-        });
+            // Initialize Speckle Viewer
+            const apiClient = new SpeckleApiClient();
+            await apiClient.authenticate(); // Authenticate if required
 
-        window.addEventListener('click', (e) => {
-            if (!infoText.contains(e.target) && e.target !== infoButton) {
-                infoText.style.display = 'none';
-            }
-        });
+            const modelUrl = 'YOUR_MODEL_URL'; // Replace with your Speckle model URL
+
+            const viewer = new SpeckleViewer(container, apiClient, {
+                showHeader: false, // Hide the header
+                showViewerControls: false, // Hide viewer controls
+                showLoginButton: false, // Hide login button if authentication is required
+                showNavigation: false // Hide navigation options
+            });
+
+            await viewer.loadModel(modelUrl);
+        }
+
+        loadViewer();
     </script>
 </body>
 </html>
-
