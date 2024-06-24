@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>geremaias</title>
+    <title>Speckle Viewer Fullscreen</title>
     <style>
         body, html {
             margin: 0;
@@ -30,6 +30,7 @@
             background-color: white;
             display: flex;
             align-items: center;
+            justify-content: center;
             z-index: 10;
             overflow: hidden;
             font-family: Arial, sans-serif;
@@ -41,11 +42,10 @@
             white-space: nowrap;
             overflow: hidden;
             width: 100%;
-            animation: marquee 60s linear infinite;
         }
         .marquee span {
             display: inline-block;
-            padding-left: 100%;
+            animation: marquee 80s linear infinite;
         }
         @keyframes marquee {
             0% {
@@ -98,7 +98,7 @@
     </style>
 </head>
 <body>
-    <iframe id="speckle-frame" title="data"
+    <iframe id="speckle-frame" title="Speckle"
         src="https://app.speckle.systems/projects/3deeb83a8f/models/74fa1a85c3#embed=%7B%22isEnabled%22%3Atrue%2C%22isTransparent%22%3Atrue%2C%22hideControls%22%3Atrue%2C%22hideSelectionInfo%22%3Atrue%7D"
         frameborder="0"
         allowfullscreen>
@@ -124,12 +124,12 @@
     </div>
 
     <script>
-        // Asegurarse de que el DOM está completamente cargado antes de ejecutar cualquier código JavaScript
+        // Ajustar la velocidad de la animación y asegurar que el texto completo sea visible
         document.addEventListener('DOMContentLoaded', function() {
-            // Calcular el ancho del texto animado para ajustar la duración de la animación
-            var marqueeWidth = document.querySelector('.marquee').offsetWidth;
-            var animationDuration = marqueeWidth / 50; // Ajustar la duración según el ancho del texto
-            document.querySelector('.marquee span').style.animation = 'marquee ' + animationDuration + 's linear infinite';
+            var marquee = document.querySelector('.marquee span');
+            var marqueeWidth = marquee.offsetWidth;
+            var animationDuration = marqueeWidth / 50; // Reducido de 80s a 50s para una animación más lenta
+            marquee.style.animation = 'marquee ' + animationDuration + 's linear infinite';
         });
 
         function openModal() {
@@ -142,7 +142,4 @@
     </script>
 </body>
 </html>
-
-
-
 
