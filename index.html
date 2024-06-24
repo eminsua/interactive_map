@@ -12,28 +12,27 @@
 <body>
     <div id="viewer-container"></div>
 
-    <!-- Speckle Viewer API -->
-    <script src="https://cdn.jsdelivr.net/npm/@speckle/viewer@0.1.4/dist/index.umd.min.js"></script>
+    <!-- Script de Speckle Viewer API -->
+    <script src="https://unpkg.com/@speckle/viewer"></script>
 
     <script>
         async function loadViewer() {
             const container = document.getElementById('viewer-container');
 
-            // Initialize Speckle Viewer
-            const apiClient = new SpeckleApiClient();
-            await apiClient.authenticate(); // Authenticate if required
+            // Inicializar el cliente Speckle API
+            const apiClient = new Speckle.Client();
+            await apiClient.authenticate(); // Autenticar si es necesario
 
-            const modelUrl = 'YOUR_MODEL_URL'; // Replace with your Speckle model URL
+            const modelUrl = 'YOUR_MODEL_URL'; // Reemplazar con la URL directa de tu modelo en Speckle
 
-            const viewer = new SpeckleViewer(container, apiClient, {
-                showHeader: false, // Hide the header
-                showViewerControls: false, // Hide viewer controls
-                showLoginButton: false, // Hide login button if authentication is required
-                showNavigation: false // Hide navigation options
-            });
-
+            const viewer = new Speckle.Viewer(container, apiClient);
             await viewer.loadModel(modelUrl);
         }
+
+        loadViewer();
+    </script>
+</body>
+</html>
 
         loadViewer();
     </script>
