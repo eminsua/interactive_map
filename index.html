@@ -13,7 +13,7 @@
     <div id="viewer-container"></div>
 
     <!-- Script de Speckle Viewer API -->
-    <script src="https://unpkg.com/@speckle/viewer"></script>
+    <script src="https://raw.githack.com/specklesystems/speckle-server/master/public/js/viewer.js"></script>
 
     <script>
         async function loadViewer() {
@@ -28,11 +28,6 @@
             const viewer = new Speckle.Viewer(container, apiClient);
             await viewer.loadModel(modelUrl);
         }
-
-        loadViewer();
-    </script>
-</body>
-</html>
 
         loadViewer();
     </script>
