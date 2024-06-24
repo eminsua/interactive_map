@@ -3,13 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esto no furula</title>
+    <title>Como puedo quitar el maldito logo</title>
     <style>
-        body { margin: 0; overflow: hidden; }
-        iframe { width: 100%; height: 100vh; border: none; }
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none; /* Para eliminar el borde del iframe */
+            display: block; /* Asegura que el iframe ocupe todo el espacio disponible */
+        }
     </style>
 </head>
 <body>
-    <iframe title="Speckle Model" src="https://app.speckle.systems/projects/1df58fe9fb/models/96c6669411#embed=%7B%22isEnabled%22%3Atrue%7D" allowfullscreen></iframe>
+    <iframe title="Speckle"
+            src="https://app.speckle.systems/projects/1df58fe9fb/models/96c6669411#embed=%7B%22isEnabled%22%3Atrue%2C%22isTransparent%22%3Atrue%2C%22hideControls%22%3Atrue%2C%22hideSelectionInfo%22%3Atrue%7D"
+            frameborder="0"
+            allowfullscreen>
+    </iframe>
 </body>
 </html>
