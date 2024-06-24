@@ -43,8 +43,6 @@
             width: 100%;
         }
         .marquee span {
-            display: inline-block;
-            padding-left: 100%;
             animation: marquee 60s linear infinite;
         }
         @keyframes marquee {
@@ -124,6 +122,11 @@
     </div>
 
     <script>
+        // Asegurarse de que el DOM está completamente cargado antes de ejecutar cualquier código JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.marquee span').style.animation = 'marquee 60s linear infinite';
+        });
+
         function openModal() {
             document.getElementById('myModal').style.display = 'block';
         }
