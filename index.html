@@ -111,12 +111,15 @@
             position: fixed;
             top: 10px;
             right: 10px;
-            background-color: #007bff;
+            background-color: rgba(0, 0, 0, 0.5);
             color: white;
-            border: none;
-            padding: 10px;
+            border: 1px solid black;
+            padding: 5px 10px;
             cursor: pointer;
             z-index: 102;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            text-transform: uppercase;
         }
         .legend-box {
             display: flex;
@@ -151,7 +154,7 @@
     </div>
 
     <!-- Legend Toggle Button -->
-    <button class="legend-toggle" onclick="toggleLegend()">Toggle Legend</button>
+    <button class="legend-toggle" onclick="toggleLegend()">Legend</button>
 
     <!-- Legend -->
     <div class="legend">
@@ -187,25 +190,4 @@
             var marquee = document.querySelector('.marquee span');
             var marqueeWidth = marquee.offsetWidth;
             var animationDuration = marqueeWidth / 50; // Reducido de 80s a 50s para una animación más lenta
-            marquee.style.animation = 'marquee ' + animationDuration + 's linear infinite';
-        });
-
-        function openModal() {
-            document.getElementById('myModal').style.display = 'block';
-        }
-
-        function closeModal() {
-            document.getElementById('myModal').style.display = 'none';
-        }
-
-        function toggleLegend() {
-            var legend = document.querySelector('.legend');
-            if (legend.style.display === 'none' || legend.style.display === '') {
-                legend.style.display = 'block';
-            } else {
-                legend.style.display = 'none';
-            }
-        }
-    </script>
-</body>
-</html>
+     
