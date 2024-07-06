@@ -95,6 +95,39 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
+        /* Legend styles */
+        .legend {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 10px;
+            display: none; /* Hidden by default */
+            z-index: 101;
+        }
+        .legend-toggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 102;
+        }
+        .legend-box {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .legend-box img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
     </style>
 </head>
 <body>
@@ -113,8 +146,38 @@
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">X</span>
-            <p>Data Artisans uses data obtained from Google Trends and the National Statistics Institute (INE) to create artistic 3D visualizations. The platform allows users to explore and analyze data interactively, facilitating the identification of trends and relationships that are not evident in static 2D representations. This approach appeals to the recipient's emotions while enriching the user experience by transforming data analysis into a more intuitive and visually appealing activity..</p>
-          
+            <p>Data Artisans uses data obtained from Google Trends and the National Statistics Institute (INE) to create artistic 3D visualizations. The platform allows users to explore and analyze data interactively, facilitating the identification of trends and relationships that are not evident in static 2D representations. This approach appeals to the recipient's emotions while enriching the user experience by transforming data analysis into a more intuitive and visually appealing activity.</p>
+        </div>
+    </div>
+
+    <!-- Legend Toggle Button -->
+    <button class="legend-toggle" onclick="toggleLegend()">Toggle Legend</button>
+
+    <!-- Legend -->
+    <div class="legend">
+        <div class="legend-box">
+            <img src="https://raw.githubusercontent.com/eminsua/interactive_map/main/legend%20images/00.jpg" alt="Image 00">
+            <span>The text goes here</span>
+        </div>
+        <div class="legend-box">
+            <img src="https://raw.githubusercontent.com/eminsua/interactive_map/main/legend%20images/01.jpg" alt="Image 01">
+            <span>The text goes here</span>
+        </div>
+        <div class="legend-box">
+            <img src="https://raw.githubusercontent.com/eminsua/interactive_map/main/legend%20images/02.jpg" alt="Image 02">
+            <span>The text goes here</span>
+        </div>
+        <div class="legend-box">
+            <img src="https://raw.githubusercontent.com/eminsua/interactive_map/main/legend%20images/03.jpg" alt="Image 03">
+            <span>The text goes here</span>
+        </div>
+        <div class="legend-box">
+            <img src="https://raw.githubusercontent.com/eminsua/interactive_map/main/legend%20images/04.jpg" alt="Image 04">
+            <span>The text goes here</span>
+        </div>
+        <div class="legend-box">
+            <img src="https://raw.githubusercontent.com/eminsua/interactive_map/main/legend%20images/05.jpg" alt="Image 05">
+            <span>The text goes here</span>
         </div>
     </div>
 
@@ -134,7 +197,15 @@
         function closeModal() {
             document.getElementById('myModal').style.display = 'none';
         }
+
+        function toggleLegend() {
+            var legend = document.querySelector('.legend');
+            if (legend.style.display === 'none' || legend.style.display === '') {
+                legend.style.display = 'block';
+            } else {
+                legend.style.display = 'none';
+            }
+        }
     </script>
 </body>
 </html>
-
