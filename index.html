@@ -107,6 +107,8 @@
             padding: 10px;
             display: none; /* Hidden by default */
             z-index: 101;
+            max-height: 80vh; /* Altura máxima de 80% del viewport height */
+            overflow-y: auto; /* Permitir scroll vertical si el contenido excede la altura máxima */
         }
         .legend-toggle {
             position: fixed;
@@ -134,6 +136,10 @@
         }
         .legend-box span {
             display: inline-block;
+        }
+        .legend-box span {
+            max-width: calc(100% - 60px); /* Ajustar el ancho máximo del texto (restar el ancho de la imagen y el margen) */
+            overflow-wrap: break-word; /* Romper palabras largas */
         }
     </style>
 </head>
